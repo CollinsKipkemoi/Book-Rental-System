@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    background: #18181b;
+
+}
+
+
+/*toggler button color*/
+.toggler {
+    background: #18181b;
+
+}
+
+#nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 11vh;
+    border: 1px solid blue;
+    width: 100vw;
+}
+
+.nav-items-div ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    list-style: none;
+    height: 100%;
+    width: 40vw;
+}
+
+.nav-items-div ul li {
+    padding: 0 10px;
+}
+
+.nav-items-div ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-items-div ul li a:hover {
+    border-bottom: 1px solid white;
+}
+
+.details-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.details-div div {
+    padding: 10px;
+    background: rgba(41, 44, 49, 0.45);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.3px);
+    -webkit-backdrop-filter: blur(7.3px);
+    border: 1px solid rgba(41, 44, 49, 0.05);
+}
+
+.home-div {
+    background: url("../images/Ellipse1.png") no-repeat 67% 0;
+    background-size: contain;
+}
+
+.genre-list ol{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.genre-list li{
+    list-style-type: circle;
+}
+
+.genre-list li a{
+    text-decoration: none;
+    color: white;
+}
+
+.genre-list li a:hover{
+    border-bottom: 1px solid white;
+}
+

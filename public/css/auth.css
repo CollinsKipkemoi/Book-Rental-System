@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container-div {
+    width: 100%;
+    position: absolute;
+    overflow-x: hidden;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../images/Ellipse1.png") no-repeat right 30vw top 20px;
+}
+
+.div1 {
+    height: 100%;
+}
+
+.div2 {
+    /*width: 40%;*/
+    height: 98%;
+    border-radius: 6px;
+    border: 1px solid white;
+
+    padding: 40px;
+}
+
+.img-bg {
+    position: relative;
+}
+
+.register-form input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(93, 44, 236);
+    margin: 10px 0;
+    padding: 10px;
+    color: white;
+}
+
+.register-form input::placeholder {
+    color: #757373;
+}
+
+.register-form input:focus {
+    outline: none;
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+.register-form button, .register-form button:active, .register-form button:focus, .register-form button:hover {
+    background: rgb(34, 5, 103);
+    border: none;
+}
+
+.div1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div1 h1{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: rgb(93, 44, 236);
+}
