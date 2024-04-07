@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_librarian',
     ];
 
     /**
@@ -43,5 +44,19 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function readerBorrows()
+    {
+        return $this->hasMany(Borrow::class, 'reader_id');
+    }
+
+    public function managedRequests()
+    {
+        return $this->hasMany(Borrow::class, 'request_managed_by');
+    }
+
+    public function managedReturns()
+    {
+        return $this->hasMany(Borrow::class, 'return_managed_by');
     }
 }
