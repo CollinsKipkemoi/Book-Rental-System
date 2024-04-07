@@ -12,13 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
-//            name (string)
-//email (string, unique)
-//email_verified_at (timestamp, nullable)
-//password (string)
-//is_librarian (boolean, default:false)
-//remember_token
-//timestamps (created_at, updated_at)
             $table->id();
             $table->string('name', 100);
             $table ->string('email', 100);

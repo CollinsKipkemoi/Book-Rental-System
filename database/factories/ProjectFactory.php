@@ -16,8 +16,17 @@ class ProjectFactory extends Factory
      */
     public function definition(): array
     {
+        // faker is a library that generates fake data
         return [
-            //
+            "name" => $this->faker->name(),
+            "email" => $this->faker->unique()->safeEmail(),
+            "email_verified_at" => $this->faker->dateTime(),
+            "password" => $this->faker->password(),
+            "is_librarian" => $this->faker->boolean(),
+            "remember_token" => $this->faker->text(),
+            "created_at" => $this->faker->dateTime(),
+            "updated_at" => $this->faker->dateTime(),
+
         ];
     }
 }
