@@ -2,28 +2,28 @@
 
 @section('content')
     <div class="home-div container">
-        <h1>Welcome to BRS</h1>
+        <h3>Welcome to BRS</h3>
         <br>
         <div class="details-div">
             <div class="users">
-                <h2>Users</h2>
-                <p>{{$users}}</p>
+                <h4>Users</h4>
+                <p>{{count($users)}}</p>
             </div>
             <div class="genres">
-                <h2>Number of genres</h2>
+                <h4>Number of genres</h4>
                 <p>
-                    {{$genres}}
+                    {{count($genrelist)}}
                 </p>
             </div>
             <div class="books">
-                <h2>Number of books</h2>
+                <h4>Number of books</h4>
                 <p>
-                    {{$books}}
+                    {{count($books)}}
                 </p>
             </div>
 {{--            active book rentals --}}
             <div class="rentals">
-                <h2>Active book rentals</h2>
+                <h4>Active book rentals</h4>
                 <p>
                     {{$rentals}}
                 </p>
@@ -32,14 +32,16 @@
         <br>
         <br>
         <div class="genre-list">
-            <h2>Genre list</h2>
+            <h4>Genre list</h4>
             <ol>
                 @foreach($genrelist as $genre)
                     <li>
-                        <a href="#">{{$genre}}</a>
+                        <a href="{{ route('books.genre', ['genre' => $genre->name]) }}">{{$genre->name}}</a>
                     </li>
                 @endforeach
             </ol>
         </div>
     </div>
 @endsection
+
+
