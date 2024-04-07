@@ -52,13 +52,15 @@ body {
     border-bottom: 1px solid white;
 }
 
-.details-div {
+
+/* HOME */
+.details-div, .search-result-div {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-.details-div div {
+.details-div div, .search-result-div .book{
     padding: 10px;
     background: rgba(41, 44, 49, 0.45);
     border-radius: 16px;
@@ -93,12 +95,45 @@ body {
     border-bottom: 1px solid white;
 }
 
+.welcome-search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.welcome-search input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(93, 44, 236);
+    margin: 10px 0;
+    padding: 10px;
+    color: white;
+}
+
+.welcome-search input::placeholder{
+    color: #757373;
+}
+
+.welcome-search input:focus{
+    outline: none;
+    background: transparent;
+    color: white;
+}
+
+.welcome-search button{
+    background: rgb(93, 44, 236);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
 /* BookBbyGenre */
-#bookByGenre {
+#bookByGenre, .mini-body {
     width: 100%;
-    position: relative;
+    /* position: relative; */
     min-height: 70vh;
-    border: 1px solid green;
     background-image: url("../images/Ellipse1.png"), url("../images/Ellipse2.png");
     background-repeat: no-repeat, no-repeat;
     background-position: right top, left bottom;
@@ -116,3 +151,7 @@ body {
 #bookByGenre .back:hover {
     border-bottom: 1px solid white;
 }
+
+
+/* search result page */
+

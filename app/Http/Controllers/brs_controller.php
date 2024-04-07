@@ -54,4 +54,14 @@ class brs_controller extends Controller
         // dd($books);
         return view('listBooksByGenre', ['books' => $books, 'genre' => $genre]);
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $books = Book::where('title', 'like', "%{$search}%")
+            ->orWhere('author', 'like', "%{$search}%")
+            ->get();
+
+        return view('search_results', ['books' => $books]);
+    }
 }
