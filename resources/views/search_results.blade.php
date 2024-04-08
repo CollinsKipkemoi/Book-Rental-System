@@ -8,7 +8,7 @@
         @foreach ($books as $book)
             <div class="search-result-div">
                 <div class="book">
-                    <h4>Title: <a href="/">{{ $book->title }}</a></h4>
+                    <h4>Title: <a href="{{ route('books.show', ['id' => $book->id]) }}">{{ $book->title }}</a></h4>
                     <p>Author: {{ $book->authors }}</p>
                     <p>Date: {{ $book->released_at }}</p>
                     <p>Description: {{ $book->description }}</p>

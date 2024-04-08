@@ -64,4 +64,10 @@ class brs_controller extends Controller
 
         return view('search_results', ['books' => $books]);
     }
+    public function show($id)
+    {
+        $book = Book::find($id);
+
+        return view('book_details', ['book' => $book]);
+    }
 }
