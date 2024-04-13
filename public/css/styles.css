@@ -27,6 +27,8 @@ body {
     align-items: center;
     height: 11vh;
     width: 100%;
+    background-color: rgb(93, 44, 236);
+    color: white;
     top: 0;
 }
 
@@ -62,7 +64,8 @@ body {
 }
 
 .details-div div,
-.search-result-div .book {
+.search-result-div .book,
+.rental, .book-details-inner , .rental-data{
     padding: 10px;
     background: rgba(41, 44, 49, 0.45);
     border-radius: 16px;
@@ -72,11 +75,6 @@ body {
     border: 1px solid rgba(41, 44, 49, 0.05);
 }
 
-.home-div {
-    background-image: url("../images/Ellipse1.png"), url("../images/Ellipse2.png");
-    background-repeat: no-repeat, no-repeat;
-    background-position: right top, left bottom;
-}
 
 .genre-list ol {
     display: grid;
@@ -123,7 +121,8 @@ body {
     color: white;
 }
 
-.welcome-search button {
+.welcome-search button,
+.borrow {
     background: rgb(93, 44, 236);
     color: white;
     border: none;
@@ -133,14 +132,14 @@ body {
 }
 
 /* BookBbyGenre */
-#bookByGenre,
-.mini-body, .book-details {
+.body{
     width: 100%;
     /* position: relative; */
-    min-height: 70vh;
-    background-image:  url("../images/Ellipse2.png"), url("../images/Ellipse1.png");
+    min-height: 80vh;
+    background-image: url("../images/Ellipse2.png"), url("../images/Ellipse1.png");
     background-repeat: no-repeat, no-repeat;
-    background-position: right top, left bottom;
+    background-position: 80% 20%, 20% 80%;
+    background-attachment: fixed;
 }
 
 #bookByGenre .back {
@@ -182,17 +181,148 @@ body {
 }
 
 
-.book-info{
+.book-info {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
 }
 
-.back-home{
+.back-home {
     font-weight: bolder;
 
 }
 
+/* My rentals */
 
+.rentals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.rentals button {
+    background: rgb(93, 44, 236);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* rental details */
+.outerRentals{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.book-details{
+    justify-self: flex-end;
+}
+
+.book-details-inner{
+    width: 100%;
+    min-height: 100%;
+
+}
+
+.oneRental h6{
+    width: 100%;
+    height: 20px;
+    height: fit-content;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: rgb(93, 44, 236);
+    color: white;
+    padding: 10px;
+}
+
+.rentals {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.oneRental{
+    min-height: 350px;
+    border: 1px solid rgb(48, 47, 47);
+    border-radius: 8px;
+}
+
+@media (min-width: 576px) {
+    .rentals {
+        grid-template-columns: repeat(2, 1fr); /* 3 items per row */
+    }
+}
+@media (min-width: 768px) {
+    .rentals {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    }
+}
+
+@media (min-width: 992px) {
+    .rentals {
+        grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    }
+}
+
+
+/* create book */
+
+.genre_list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+
+.create-book input {
+    background: transparent;
+    border: none;
+    border: 1px solid rgb(93, 44, 236);
+    margin: 10px 0;
+    padding: 10px;
+    color: white;
+    /* border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px; */
+}
+.create-book input::placeholder {
+    color: #757373;
+}
+
+.create-book input:focus {
+    outline: none;
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+.create-book button, .create-book button:active, .create-book button:focus, .create-book button:hover {
+    background: rgb(34, 5, 103);
+    border: none;
+}
+.create-book textarea{
+    background: transparent;
+    border: none;
+    border: 1px solid rgb(93, 44, 236);
+    margin: 10px 0;
+    padding: 10px;
+    color: white;
+}
+
+.create-book textarea:active, .create-book textarea:focus{
+    outline: none;
+    background: transparent;
+    border: 1px solid rgb(93, 44, 236);
+    /* border: none; */
+    color: white;
+}
+
+.form-check{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 10px;
+}
 

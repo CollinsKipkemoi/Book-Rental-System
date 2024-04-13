@@ -28,8 +28,20 @@
                 {{-- Description --}}
                 <br>
                 <p>{{ $book->description }}</p>
-
+                <br>
+                @if (auth()->check() && !$is_librarian && $book->in_stock > 0)
+                    <form method="POST" action="{{ route('borrow') }}">
+                        @csrf
+                        <input type="hidden" name="book_id" value="{{ $book->id }}">
+                        <button type="submit" class="borrow">Borrow Book</button>
+                    </form>
+                @endif
+                {{-- @if ($hasOngoingRental)
+                    <p>You have an ongoing rental process with this book.</p>
+                @endif --}}
+                {{-- TODO: Number of ava --}}
                 {{-- TODO: Name of available books (not borrowed) --}}
+                {{-- TODO: hasongoingRental --}}
             </div>
         </div>
         <br>

@@ -26,16 +26,11 @@ class Borrow extends Model
 
     public function reader()
     {
-        return $this->belongsTo(User::class, 'reader_id');
+        return $this->belongsTo(User::class);
     }
 
-    public function requestManager()
+    public function librarian()
     {
-        return $this->belongsTo(User::class, 'request_managed_by');
-    }
-
-    public function returnManager()
-    {
-        return $this->belongsTo(User::class, 'return_managed_by');
+        return $this->belongsTo(User::class);
     }
 }
