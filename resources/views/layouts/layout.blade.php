@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <div class="container container-fluid">
-        <nav class="navbar navbar-expand-md bg-body-tertiary" id="nav-container">
+    <div class="navbar-div-wrapper">
+        <nav class="navbar navbar-expand-md bg-body-tertiary container container-fluid" id="nav-container">
             <a class="navbar-brand" href="/">BRS</a>
             <div class="nav-items-div">
                 <ul>
@@ -23,7 +23,7 @@
                         <li><a href="/">Home</a></li>
                         {{-- view active rentals --}}
                         <li><a href="/rentals">My Rentals</a></li>
-                        @if(auth()->user()->is_librarian)
+                        @if (auth()->user()->is_librarian)
                             {{-- view all rentals --}}
                             <li><a href="">Rental details</a></li>
                             {{-- view all books --}}
@@ -38,6 +38,11 @@
                     <li>
                         <a href="/addBook">create book</a>
                     </li>
+                    <li class="profile">
+                        <a href="/profile">
+                            <img src="{{ asset('images/profile.png') }}" alt="user" class="user-icon">
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -50,6 +55,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <script src="https://kit.fontawesome.com/0c0bb61621.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -21,6 +21,18 @@ body {
 
 }
 
+.navbar-div-wrapper {
+    width: 100vw;
+    height: 11vh;
+    background-color: rgb(93, 44, 236);
+}
+
+.navbar-div-wrapper .navbar-brand {
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+}
+
 #nav-container {
     display: flex;
     justify-content: space-between;
@@ -54,6 +66,22 @@ body {
     border-bottom: 1px solid white;
 }
 
+.profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+}
+
 
 /* HOME */
 .details-div,
@@ -65,7 +93,9 @@ body {
 
 .details-div div,
 .search-result-div .book,
-.rental, .book-details-inner , .rental-data{
+.rental,
+.book-details-inner,
+.rental-data, .profileInfo {
     padding: 10px;
     background: rgba(41, 44, 49, 0.45);
     border-radius: 16px;
@@ -132,7 +162,7 @@ body {
 }
 
 /* BookBbyGenre */
-.body{
+.body {
     width: 100%;
     /* position: relative; */
     min-height: 80vh;
@@ -140,6 +170,11 @@ body {
     background-repeat: no-repeat, no-repeat;
     background-position: 80% 20%, 20% 80%;
     background-attachment: fixed;
+}
+
+#bookByGenre {
+
+    border: 1px solid red;
 }
 
 #bookByGenre .back {
@@ -201,33 +236,34 @@ body {
     gap: 20px;
 }
 
-.rentals button {
+.rentals button, .profileBtn {
     background: rgb(93, 44, 236);
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
+
 }
 
 /* rental details */
-.outerRentals{
+.outerRentals {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-.book-details{
+.book-details {
     justify-self: flex-end;
 }
 
-.book-details-inner{
+.book-details-inner {
     width: 100%;
     min-height: 100%;
 
 }
 
-.oneRental h6{
+.oneRental h6 {
     width: 100%;
     height: 20px;
     height: fit-content;
@@ -244,7 +280,7 @@ body {
     gap: 20px;
 }
 
-.oneRental{
+.oneRental {
     min-height: 350px;
     border: 1px solid rgb(48, 47, 47);
     border-radius: 8px;
@@ -252,25 +288,29 @@ body {
 
 @media (min-width: 576px) {
     .rentals {
-        grid-template-columns: repeat(2, 1fr); /* 3 items per row */
+        grid-template-columns: repeat(2, 1fr);
+        /* 3 items per row */
     }
 }
+
 @media (min-width: 768px) {
     .rentals {
-        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 items per row */
     }
 }
 
 @media (min-width: 992px) {
     .rentals {
-        grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 items per row */
     }
 }
 
 
 /* create book */
 
-.genre_list{
+.genre_list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -287,6 +327,7 @@ body {
     /* border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px; */
 }
+
 .create-book input::placeholder {
     color: #757373;
 }
@@ -298,11 +339,15 @@ body {
     color: white;
 }
 
-.create-book button, .create-book button:active, .create-book button:focus, .create-book button:hover {
+.create-book button,
+.create-book button:active,
+.create-book button:focus,
+.create-book button:hover {
     background: rgb(34, 5, 103);
     border: none;
 }
-.create-book textarea{
+
+.create-book textarea {
     background: transparent;
     border: none;
     border: 1px solid rgb(93, 44, 236);
@@ -311,7 +356,8 @@ body {
     color: white;
 }
 
-.create-book textarea:active, .create-book textarea:focus{
+.create-book textarea:active,
+.create-book textarea:focus {
     outline: none;
     background: transparent;
     border: 1px solid rgb(93, 44, 236);
@@ -319,10 +365,36 @@ body {
     color: white;
 }
 
-.form-check{
+.form-check {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
 }
 
+
+/* Profile */
+.profileInfo {
+    flex-direction: column;
+    width: 35vw;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.profileInfo img{
+    width: 150px;
+    height: 150px;
+}
+
+.profileContainer{
+    display: grid;
+    place-items: center;
+    height: 78vh;
+}
+
+.profileContainer a{
+    text-decoration: none;
+    color: white;
+}

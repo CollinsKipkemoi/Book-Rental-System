@@ -161,4 +161,10 @@ class brs_controller extends Controller
 
         return redirect('/');
     }
+
+    public function profile()
+    {
+        $user = Auth::user();
+        return view('profile', ['user' => $user]);
+    }
 }

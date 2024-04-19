@@ -21,3 +21,4 @@ Route::get('/rentals', [brs_controller::class, 'showRentals'])->name('rentals');
 Route::get('/rentals/{id}', [brs_controller::class, 'showRentalDetails'])->name('rental.details');
 Route::get('/addBook', [brs_controller::class, 'addBook']) ->name('addBook');
 Route::post('/addBook', [brs_controller::class, 'store_book']) ->name('storeBook');
+Route::get('/profile', [brs_controller::class, 'profile'])->name('profile');

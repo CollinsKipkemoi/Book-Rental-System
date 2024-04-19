@@ -1,8 +1,7 @@
 @extends('layouts.layout')
-
 @section('content')
     <div class="container container-fluid" id="bookByGenre">
-        <h3 class="pt-3" >Books by genre</h3>
+        <h3 class="pt-3">Books by genre</h3>
         <h4>{{ $genre }} books in the system</h4>
         <ul>
             @foreach ($books as $book)
@@ -15,4 +14,4 @@
         </ul>
         <a class="back" href="/">Back to home</a>
     </div>
-@endsection;
+@endsection
