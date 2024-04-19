@@ -95,7 +95,8 @@ body {
 .search-result-div .book,
 .rental,
 .book-details-inner,
-.rental-data, .profileInfo {
+.rental-data,
+.profileInfo {
     padding: 10px;
     background: rgba(41, 44, 49, 0.45);
     border-radius: 16px;
@@ -236,7 +237,9 @@ body {
     gap: 20px;
 }
 
-.rentals button, .profileBtn {
+.rentals button,
+.profileBtn,
+.logOut {
     background: rgb(93, 44, 236);
     color: white;
     border: none;
@@ -383,18 +386,24 @@ body {
     justify-content: space-evenly;
 }
 
-.profileInfo img{
+.profileInfo img {
     width: 150px;
     height: 150px;
 }
 
-.profileContainer{
+.profileContainer {
     display: grid;
     place-items: center;
     height: 78vh;
 }
 
-.profileContainer a{
+.profileContainer a {
     text-decoration: none;
     color: white;
+}
+
+.profileButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }

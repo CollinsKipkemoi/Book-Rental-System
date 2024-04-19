@@ -12,9 +12,15 @@
                 <p>Role: {{ auth()->user()->is_librarian ? 'Librarian' : 'User' }}</p>
             </div>
         </div>
-        <button class="profileBtn">
-            <a href="/"> <i class="fa-solid fa-circle-chevron-left"></i> Home</a>
-        </button>
+        <div class="profileButtons">
+
+            <button class="profileBtn">
+                <a href="/"> <i class="fa-solid fa-circle-chevron-left"></i> Home</a>
+            </button>
+
+            <button class="logOut">
+                <a href="/logout">Sign out</a>
+            </button>
+        </div>
     </div>
 @endsection
-

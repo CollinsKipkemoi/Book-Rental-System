@@ -28,7 +28,7 @@
         <br>
         <h3>Login</h3>
         <br>
-        <form class="register-form" action="" method="post">
+        <form class="register-form" action="/login" method="post">
             @csrf
             <div class="mb-4">
                 {{-- email --}}

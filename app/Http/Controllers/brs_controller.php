@@ -167,4 +167,28 @@ class brs_controller extends Controller
         $user = Auth::user();
         return view('profile', ['user' => $user]);
     }
+
+    // signin
+
+    public function signin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required | email',
+            'password' => 'required'
+        ]);
+
+        if (Auth::attempt($request->only('email', 'password'))) {
+            return redirect()->intended('/');
+        } else {
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ]);
+        }
+    }
+
+    // logout
+    public function logout(){
+        Auth::logout();
+        return redirect('/login');
+    }
 }
