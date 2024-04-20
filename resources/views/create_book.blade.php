@@ -5,7 +5,7 @@
 
     <div class="create-book container">
         <h3>Add a book to the system</h3>
-        <form class="register-form" action="{{route('storeBook')}}" method="post">
+        <form class="register-form" action="{{ route('storeBook') }}" method="post">
             @csrf
             <div class="mb-4">
                 {{-- title --}}
@@ -88,8 +88,8 @@
                 {{-- in stock --}}
                 <label for="in_stock">In Stock:</label>
                 <br>
-                <input type="number" id="in_stock" name="in_stock" min="0" placeholder="Number in stock" value="{{old('in_stock')}}"
-                class="form-control @error('in_stock') is-invalid @enderror">
+                <input type="number" id="in_stock" name="in_stock" min="0" placeholder="Number in stock"
+                    value="{{ old('in_stock') }}" class="form-control @error('in_stock') is-invalid @enderror">
 
                 @error('in_stock')
                     <div class="invalid-feedback">

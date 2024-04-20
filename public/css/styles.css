@@ -66,12 +66,12 @@ body {
     border-bottom: 1px solid white;
 }
 
-.nav-items-div .profile a{
+.nav-items-div .profile a {
     text-decoration: none;
     color: white;
 }
 
-.nav-items-div .profile a:hover{
+.nav-items-div .profile a:hover {
     text-decoration: none;
 }
 
@@ -106,7 +106,8 @@ body {
 .rental,
 .book-details-inner,
 .rental-data,
-.profileInfo, .bookByGenre {
+.profileInfo,
+.bookByGenre {
     padding: 10px;
     background: rgba(41, 44, 49, 0.45);
     border-radius: 16px;
@@ -163,7 +164,8 @@ body {
 }
 
 .welcome-search button,
-.borrow , .back{
+.borrow,
+.back {
     background: rgb(93, 44, 236);
     color: white;
     border: none;
@@ -184,12 +186,12 @@ body {
 
 
 
-.back{
+.back {
     margin: 20px 48%;
     display: flex;
 }
 
-.back a{
+.back a {
     text-decoration: none;
     color: white;
 
@@ -323,16 +325,82 @@ body {
     gap: 10px;
 }
 
+.create-book form{
+    overflow-x: hidden;
+}
+
+
+.create-book input:not([ type="checkbox"
+
+    ]) {
+    border-radius: 10px;
+    border-bottom: 1px solid rgb(93, 44, 236);
+}
 
 .create-book input {
     background: transparent;
     border: none;
-    border: 1px solid rgb(93, 44, 236);
     margin: 10px 0;
     padding: 10px;
     color: white;
-    /* border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px; */
+}
+
+.create-book input[type="checkbox"] {
+    border: 1px solid rgb(93, 44, 236);
+}
+
+.create-book form {
+    width: 65%;
+    border: 1px solid rgb(93, 44, 236);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgb(93, 44, 236);
+    padding: 20px;
+}
+
+/* media querry for small screen */
+
+@media (max-width: 768px) {
+    .create-book {
+        width: 100%;
+    }
+
+    .create-book form {
+        width: 100%;
+    }
+
+    .create-book textarea {
+        width: 100%;
+    }
+
+    .create-book button {
+        width: 100%;
+    }
+
+    .create-book .genre_list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .create-book {
+        width: 50%;
+    }
+
+    .create-book form {
+        width: 100%;
+    }
+
+    .create-book textarea {
+        width: 100%;
+    }
+
+    .create-book button {
+        width: 100%;
+    }
+
+    .create-book .genre_list {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .create-book input::placeholder {
@@ -414,36 +482,36 @@ body {
 
 
 /* Book by genre */
-.bookByGenre{
+.bookByGenre {
     min-height: 300px;
 }
 
-.booksByGenreDiv{
+.booksByGenreDiv {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.booksByGenreDiv li{
+.booksByGenreDiv li {
     list-style-type: none;
 }
 
-.booksByGenreDiv a{
+.booksByGenreDiv a {
     text-decoration: none;
     color: white;
 }
 
-.booksByGenreDiv .heading{
+.booksByGenreDiv .heading {
     font-size: 1.2em;
     font-weight: bolder;
 }
 
 
-.backHomeBtn a{
+.backHomeBtn a {
     text-decoration: none;
     color: white;
 }
 
-#bookByGenre .backHomeBtn{
-    margin: 20px ;
+#bookByGenre .backHomeBtn {
+    margin: 20px;
 }
