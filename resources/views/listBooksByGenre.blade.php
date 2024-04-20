@@ -2,16 +2,24 @@
 @section('content')
     <div class="container container-fluid" id="bookByGenre">
         <h3 class="pt-3">Books by genre</h3>
-        <h4>{{ $genre }} books in the system</h4>
-        <ul>
+        <br>
+        <h4>{{ $genreName }} books in the system</h4>
+
+        <div class="booksByGenreDiv">
             @foreach ($books as $book)
-                <li>
-                    <a href="{{ route('book', ['id' => $book->id]) }}">
-                        {{ $book->title }}
-                    </a>
-                </li>
+                <a href="">
+                    <li class="bookByGenre">
+                        <p><span class="heading">Title: </span>{{ $book->title }}</p>
+                        <p><span class="heading">Authors: </span>{{ $book->authors }}</p>
+                        <p><span class="heading">Time: </span>{{ $book->created_at }}</p>
+                        <p><span class="heading"> Description:</span>{{ $book->description }}</p>
+                    </li>
+                </a>
             @endforeach
-        </ul>
-        <a class="back" href="/">Back to home</a>
+        </div>
+
+        <button class="backHomeBtn">
+            <a href="/"> <i class="fa-solid fa-circle-chevron-left"></i> Home</a>
+        </button>
     </div>
 @endsection

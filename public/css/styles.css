@@ -66,11 +66,21 @@ body {
     border-bottom: 1px solid white;
 }
 
+.nav-items-div .profile a{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-items-div .profile a:hover{
+    text-decoration: none;
+}
+
+
 .profile {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 1px solid grey;
+    border: 1px solid rgb(99, 136, 235);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,7 +106,7 @@ body {
 .rental,
 .book-details-inner,
 .rental-data,
-.profileInfo {
+.profileInfo, .bookByGenre {
     padding: 10px;
     background: rgba(41, 44, 49, 0.45);
     border-radius: 16px;
@@ -153,7 +163,7 @@ body {
 }
 
 .welcome-search button,
-.borrow {
+.borrow , .back{
     background: rgb(93, 44, 236);
     color: white;
     border: none;
@@ -162,7 +172,6 @@ body {
     cursor: pointer;
 }
 
-/* BookBbyGenre */
 .body {
     width: 100%;
     /* position: relative; */
@@ -173,22 +182,17 @@ body {
     background-attachment: fixed;
 }
 
-#bookByGenre {
 
-    border: 1px solid red;
+
+.back{
+    margin: 20px 48%;
+    display: flex;
 }
 
-#bookByGenre .back {
-    position: absolute;
-    bottom: 30px;
+.back a{
     text-decoration: none;
     color: white;
-    font-weight: bolder;
 
-}
-
-#bookByGenre .back:hover {
-    border-bottom: 1px solid white;
 }
 
 
@@ -238,7 +242,7 @@ body {
 }
 
 .rentals button,
-.profileBtn,
+.backHomeBtn,
 .logOut {
     background: rgb(93, 44, 236);
     color: white;
@@ -406,4 +410,40 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+
+
+/* Book by genre */
+.bookByGenre{
+    min-height: 300px;
+}
+
+.booksByGenreDiv{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.booksByGenreDiv li{
+    list-style-type: none;
+}
+
+.booksByGenreDiv a{
+    text-decoration: none;
+    color: white;
+}
+
+.booksByGenreDiv .heading{
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+
+.backHomeBtn a{
+    text-decoration: none;
+    color: white;
+}
+
+#bookByGenre .backHomeBtn{
+    margin: 20px ;
 }

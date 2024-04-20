@@ -28,7 +28,7 @@
                 </p>
             </div>
             {{--            active book rentals --}}
-            <div class="rentals">
+            <div class="activeRentals">
                 <h4>Active book rentals</h4>
                 <p>
                     {{ $rentals }}

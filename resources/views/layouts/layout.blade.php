@@ -38,11 +38,11 @@
                     <li>
                         <a href="/addBook">create book</a>
                     </li>
-                    <li class="profile">
+                    <div class="profile">
                         <a href="/profile">
                             <img src="{{ asset('images/profile.png') }}" alt="user" class="user-icon">
                         </a>
-                    </li>
+                    </div>
                 </ul>
             </div>
         </nav>

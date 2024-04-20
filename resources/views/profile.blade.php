@@ -14,7 +14,7 @@
         </div>
         <div class="profileButtons">
 
-            <button class="profileBtn">
+            <button class="backHomeBtn">
                 <a href="/"> <i class="fa-solid fa-circle-chevron-left"></i> Home</a>
             </button>
 

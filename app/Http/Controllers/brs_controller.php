@@ -50,11 +50,12 @@ class brs_controller extends Controller
         return redirect('/');
     }
 
-    public function listBooksByGenre($genre)
+    public function listBooksByGenre($genreName)
     {
-        $books = Book::where('genre', $genre)->get();
+        $genre = Genre::where('name', $genreName)->first();
+        $books = $genre->books;
         // dd($books);
-        return view('listBooksByGenre', ['books' => $books, 'genre' => $genre]);
+        return view('listBooksByGenre', ['books' => $books, 'genreName' => $genreName]);
     }
 
     public function search(Request $request)
@@ -187,7 +188,8 @@ class brs_controller extends Controller
     }
 
     // logout
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect('/login');
     }
