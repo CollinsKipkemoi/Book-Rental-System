@@ -50,7 +50,8 @@ body {
     align-items: end;
     list-style: none;
     height: 100%;
-    width: 40vw;
+    width: fit-content;
+
 }
 
 .nav-items-div ul li {
