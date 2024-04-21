@@ -59,4 +59,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Borrow::class, 'return_managed_by');
     }
+
+    public function hasOngoingRental($bookId)
+    {
+        return $this->readerBorrows()
+            ->where('book_id', $bookId)
+            ->where('status', '!=', 'RETURNED')
+            ->exists();
+    }
 }

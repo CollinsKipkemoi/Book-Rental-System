@@ -107,7 +107,7 @@ body {
 .book-details-inner,
 .rental-data,
 .profileInfo,
-.bookByGenre {
+.bookByGenre, .book-info , .ongoingRentalInfo{
     padding: 10px;
     background: rgba(41, 44, 49, 0.45);
     border-radius: 16px;
@@ -165,7 +165,7 @@ body {
 
 .welcome-search button,
 .borrow,
-.back {
+.back, .edit {
     background: rgb(93, 44, 236);
     color: white;
     border: none;
@@ -262,6 +262,8 @@ body {
     gap: 20px;
 }
 
+
+/* book details */
 .book-details {
     justify-self: flex-end;
 }
@@ -270,6 +272,52 @@ body {
     width: 100%;
     min-height: 100%;
 
+}
+
+.outer-div{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.book-info{
+    padding: 30px;
+}
+
+.book-info, .book-image{
+    min-height: 90%;
+    max-height: fit-content;
+}
+.book-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.book-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+.book-info .heading{
+    color: purple;
+    font-weight: 700;
+}
+
+.ongoingRentalInfo{
+    position: relative;
+}
+
+.ongoingRentalInfo h3{
+    width: 100%;
+    height: fit-content;
+    background: rgb(93, 44, 236);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .oneRental h6 {

@@ -28,6 +28,9 @@
                             <li><a href="">Rental details</a></li>
                             {{-- view all books --}}
                             <li><a href="/books">All Books</a></li>
+                            <li>
+                                <a href="/addBook">create book</a>
+                            </li>
                         @endif
                     @endauth
                     @guest
@@ -35,9 +38,7 @@
                         <li><a href="/login">Login</a></li>
                     @endguest
                     {{-- create a book --}}
-                    <li>
-                        <a href="/addBook">create book</a>
-                    </li>
+
                     <div class="profile">
                         <a href="/profile">
                             <img src="{{ asset('images/profile.png') }}" alt="user" class="user-icon">

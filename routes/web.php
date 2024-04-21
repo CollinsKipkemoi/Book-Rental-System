@@ -24,3 +24,7 @@ Route::post('/addBook', [brs_controller::class, 'store_book'])->name('storeBook'
 Route::get('/profile', [brs_controller::class, 'profile'])->name('profile');
 Route::post('/login', [brs_controller::class, 'signin'])->name('login');
 Route::get('/logout', [brs_controller::class, 'logout'])->name('logout');
+Route::post('/borrow', [brs_Controller::class, 'borrow'])->name('borrow');
+Route::get('/book/{bookId}', [brs_controller::class, 'show'])->name('book_details');
+Route::get('/book/{bookId}/edit', [brs_controller::class, 'edit'])->name('book_edit');
+Route::post('/book/{bookId}/edit', [brs_controller::class, 'update'])->name('book_update');

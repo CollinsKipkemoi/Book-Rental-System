@@ -67,11 +67,17 @@ class brs_controller extends Controller
 
         return view('search_results', ['books' => $books]);
     }
-    public function show($id)
+    public function show($bookId)
     {
-        $book = Book::find($id);
+        $book = Book::find($bookId);
+        $user = Auth::user();
+        $hasOngoingRental = false;
 
-        return view('book_details', ['book' => $book]);
+        if ($user) {
+            $hasOngoingRental = $user->hasOngoingRental($book->id);
+        }
+
+        return view('book_details', ['book' => $book, 'user' => $user, 'hasOngoingRental' => $hasOngoingRental]);
     }
 
     // borrow
@@ -192,5 +198,44 @@ class brs_controller extends Controller
     {
         Auth::logout();
         return redirect('/login');
+    }
+
+
+
+
+    // borrow
+
+    public function borrow(Request $request)
+    {
+        $book = Book::find($request->book_id);
+        $user = Auth::user();
+
+        if (!$user->hasOngoingRental($book->id)) {
+            Borrow::create([
+                'book_id' => $book->id,
+                'reader_id' => $user->id,
+                'status' => 'PENDING',
+                'request_processed_at' => null,
+                'request_managed_by' => null,
+            ]);
+        }
+
+        return redirect()->route('book_details', ['bookId' => $book->id]);
+    }
+
+
+    // Edit book
+    public function edit($bookId)
+    {
+        $book = Book::find($bookId);
+        $genres = Genre::all();
+        return view('book_edit', ['book' => $book, 'genres' => $genres]);
+    }
+
+    public function update(Request $request, $bookId)
+    {
+        $book = Book::find($bookId);
+        $book->update($request->all());
+        return redirect()->route('book_details', ['bookId' => $book->id]);
     }
 }

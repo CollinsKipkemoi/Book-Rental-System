@@ -7,42 +7,65 @@
         <div class="outer-div">
             <div class="book-image">
                 {{-- TODO: fix the typo for the book url --}}
-                <img src="{{ $book->cover_imag ?: asset('images/book_cover.png') }}" alt="{{ $book->title }}" height="90%">
+                <img src="{{ $book->cover_imag ?: asset('images/book_cover.png') }}" alt="{{ $book->title }}">
             </div>
             <div class="book-info">
                 <h2>{{ $book->title }}</h2>
                 <br>
                 <p class="author">{{ $book->authors }}</p>
                 {{-- genre --}}
-                <p>Genre: {{ $book->genre }}</p>
+                <p><span class="heading">Genre:</span> {{ $book->genre }}</p>
                 {{-- publish date --}}
-                <p>Date of publish: {{ $book->released_at }}</p>
+                <p><span class="heading">Date of publish:</span> {{ $book->released_at }}</p>
                 {{-- pages --}}
-                <p>Pages: {{ $book->pages }}</p>
+                <p><span class="heading">Pages: </span>{{ $book->pages }}</p>
                 {{-- lang --}}
-                <p>Language code: {{ $book->language_code }}</p>
+                <p><span class="heading">Language code:</span> {{ $book->language_code }}</p>
                 {{-- isbn --}}
-                <p>ISBN Number: {{ $book->isbn }}</p>
+                <p><span class="heading">ISBN Number:</span> {{ $book->isbn }}</p>
                 {{-- In stock --}}
-                <p>In stock: {{ $book->in_stock }}</p>
+                <p><span class="heading">In stock:</span> {{ $book->in_stock }}</p>
                 {{-- Description --}}
-                <br>
+                <p><span class="heading">Description: </span></p>
                 <p>{{ $book->description }}</p>
                 <br>
-                @if (auth()->check() && !$is_librarian && $book->in_stock > 0)
+                @if (auth()->check() && !$user->is_librarian && $book->in_stock > 0)
                     <form method="POST" action="{{ route('borrow') }}">
                         @csrf
                         <input type="hidden" name="book_id" value="{{ $book->id }}">
                         <button type="submit" class="borrow">Borrow Book</button>
                     </form>
                 @endif
-                {{-- @if ($hasOngoingRental)
-                    <p>You have an ongoing rental process with this book.</p>
-                @endif --}}
+
+                {{-- edit book button --}}
+
+                @if (auth()->check() && $user->is_librarian)
+                    <form action="{{ route('book_edit', ['bookId' => $book->id]) }}" method="get">
+                        @csrf
+                        <input type="hidden" name="book_id" value="{{ $book->id }}">
+                        <button type="submit" class="edit">Edit Book</button>
+                    </form>
+                @endif
+
+
+
                 {{-- TODO: Number of ava --}}
                 {{-- TODO: Name of available books (not borrowed) --}}
                 {{-- TODO: hasongoingRental --}}
             </div>
+
+            @if (auth()->check() && !$user->is_librarian)
+                <div class="ongoingRentalInfo">
+                    <h3>Ongoing Rental Info</h3>
+                    <br>
+                    @if ($hasOngoingRental)
+                        <p>You have an ongoing rental for this book</p>
+                    @elseif (!$hasOngoingRental)
+                        <p>You do not have an ongoing rental for this book</p>
+                    @endif
+                </div>
+            @endif
+
         </div>
         <br>
         <a class="back-home" href="/">Back home</a>
