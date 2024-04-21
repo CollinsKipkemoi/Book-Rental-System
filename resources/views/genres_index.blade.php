@@ -13,8 +13,28 @@
             <ol>
                 @foreach ($genres as $genre)
                     <li class="genre">
-                        <h4 class="genreName">Name: {{ $genre->name }}</h4>
-                        <p class="genreStyle">Style: {{ $genre->style }}</p>
+                        <div class="genreAndStyle">
+                            <h4 class="genreName">Name: {{ $genre->name }}</h4>
+                            <p class="genreStyle">Style: {{ $genre->style }}</p>
+                        </div>
+                        <div class="genreButtons">
+
+                            <button type="submit" class="edit">
+                                <a href=""><i class="fa-solid fa-pencil"></i> Edit</a>
+                            </button>
+
+                            <form
+                                action="{{ route('genre_destroy', [
+                                    'genreId' => $genre->id,
+                                ]) }}"
+                                method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="delete">
+                                    <i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </div>
                     </li>
                 @endforeach
             </ol>

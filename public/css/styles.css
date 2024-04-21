@@ -185,6 +185,7 @@ body {
     background-repeat: no-repeat, no-repeat;
     background-position: 80% 20%, 20% 80%;
     background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 
@@ -590,8 +591,8 @@ body {
 
 .genre-list ol{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
 
 }
 
@@ -601,6 +602,26 @@ body {
 
 }
 
+
+.genre{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.genreButtons button>a{
+    text-decoration: none;
+    color: white;
+}
+
+.genreButtons{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
 /* Add a new genre */
 .addGenre:hover{

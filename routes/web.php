@@ -32,3 +32,4 @@ Route::delete('/book/{bookId}', [brs_controller::class, 'destroy'])->name('book_
 Route::get('/genres', [brs_controller::class, 'genres'])->name('genres_index');
 Route::post('/genres', [brs_controller::class, 'storeGenre'])->name('genres_store');
 Route::get('/genres/create', [brs_controller::class, 'createGenre'])->name('genres_create');
+Route::delete('/genres/{genreId}',[brs_controller::class, 'destroyGenre'])->name('genre_destroy');
