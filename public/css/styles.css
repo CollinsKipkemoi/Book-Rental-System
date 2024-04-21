@@ -145,20 +145,22 @@ body {
 
 }
 
-.welcome-search input {
+.welcome-search input , .newGenre {
     background: transparent;
     border: none;
     border-bottom: 1px solid rgb(93, 44, 236);
     margin: 10px 0;
     padding: 10px;
     color: white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .welcome-search input::placeholder {
     color: #757373;
 }
 
-.welcome-search input:focus {
+.welcome-search input:focus, .newGenre {
     outline: none;
     background: transparent;
     color: white;
@@ -166,7 +168,7 @@ body {
 
 .welcome-search button,
 .borrow,
-.back, .edit, .delete {
+.back, .edit, .delete, .addGenre {
     background: rgb(93, 44, 236);
     color: white;
     border: none;
@@ -591,4 +593,39 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 
+}
+
+.mini-body a{
+    text-decoration: none;
+    color: white;
+
+}
+
+
+/* Add a new genre */
+.addGenre:hover{
+    background: purple;
+}
+
+.mini-body select{
+    background: transparent;
+    border: none;
+    border: 1px solid rgb(93, 44, 236);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.mini-body select:focus {
+    background: rgb(24, 24, 27);
+    outline: none;
+    color: white; 
+}
+
+.mini-body form{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    /* width: 60%; */
 }

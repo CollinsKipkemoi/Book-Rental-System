@@ -30,3 +30,5 @@ Route::get('/book/{bookId}/edit', [brs_controller::class, 'edit'])->name('book_e
 Route::post('/book/{bookId}/edit', [brs_controller::class, 'update'])->name('book_update');
 Route::delete('/book/{bookId}', [brs_controller::class, 'destroy'])->name('book_destroy');
 Route::get('/genres', [brs_controller::class, 'genres'])->name('genres_index');
+Route::post('/genres', [brs_controller::class, 'storeGenre'])->name('genres_store');
+Route::get('/genres/create', [brs_controller::class, 'createGenre'])->name('genres_create');

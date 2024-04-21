@@ -265,4 +265,24 @@ class brs_controller extends Controller
         $genres = Genre::all(); // Fetch all genres
         return view('genres_index', ['genres' => $genres]);
     }
+
+    public function storeGenre(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|min:3|max:255',
+            'style' => 'required|in:primary,secondary,success,danger,warning,info,light,dark',
+        ]);
+
+        $genre = new Genre;
+        $genre->name = $request->name;
+        $genre->style = $request->style;
+        $genre->save();
+
+        return redirect()->route('genres_index')->with('success', 'Genre added successfully');
+    }
+
+    public function createGenre()
+    {
+        return view('genreCreate');
+    }
 }
