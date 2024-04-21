@@ -238,4 +238,22 @@ class brs_controller extends Controller
         $book->update($request->all());
         return redirect()->route('book_details', ['bookId' => $book->id]);
     }
+
+    // delete
+    public function destroy($bookId)
+    {
+        $book = Book::find($bookId);
+
+        if ($book) {
+            // delete in associated tables
+            $book->genres()->detach();
+            $book->borrows()->delete();
+
+            $book->delete();
+
+            return redirect('/')->with('success', 'Book deleted successfully');
+        }
+
+        return redirect('/')->with('error', 'Book not found');
+    }
 }

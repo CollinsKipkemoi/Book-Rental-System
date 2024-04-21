@@ -39,19 +39,28 @@
 
                 {{-- edit book button --}}
 
-                @if (auth()->check() && $user->is_librarian)
-                    <form action="{{ route('book_edit', ['bookId' => $book->id]) }}" method="get">
-                        @csrf
-                        <input type="hidden" name="book_id" value="{{ $book->id }}">
-                        <button type="submit" class="edit">Edit Book</button>
-                    </form>
-                @endif
+                <div class="libBtn">
+                    @if (auth()->check() && $user->is_librarian)
+                        <form action="{{ route('book_edit', ['bookId' => $book->id]) }}" method="get">
+                            @csrf
+                            <input type="hidden" name="book_id" value="{{ $book->id }}">
+                            <button type="submit" class="edit">Edit Book</button>
+                        </form>
+                    @endif
+
+                    @if (auth()->check() && $user->is_librarian)
+                        <form action="{{ route('book_destroy', ['bookId' => $book->id]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete">Delete Book</button>
+                        </form>
+                    @endif
+                </div>
 
 
 
                 {{-- TODO: Number of ava --}}
                 {{-- TODO: Name of available books (not borrowed) --}}
-                {{-- TODO: hasongoingRental --}}
             </div>
 
             @if (auth()->check() && !$user->is_librarian)

@@ -28,3 +28,4 @@ Route::post('/borrow', [brs_Controller::class, 'borrow'])->name('borrow');
 Route::get('/book/{bookId}', [brs_controller::class, 'show'])->name('book_details');
 Route::get('/book/{bookId}/edit', [brs_controller::class, 'edit'])->name('book_edit');
 Route::post('/book/{bookId}/edit', [brs_controller::class, 'update'])->name('book_update');
+Route::delete('/book/{bookId}', [brs_controller::class, 'destroy'])->name('book_destroy');
