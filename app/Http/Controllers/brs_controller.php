@@ -256,4 +256,13 @@ class brs_controller extends Controller
 
         return redirect('/')->with('error', 'Book not found');
     }
+
+
+    // List genres
+
+    public function genres()
+    {
+        $genres = Genre::all(); // Fetch all genres
+        return view('genres_index', ['genres' => $genres]);
+    }
 }

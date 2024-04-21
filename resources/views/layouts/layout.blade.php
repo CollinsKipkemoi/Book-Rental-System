@@ -31,6 +31,9 @@
                             <li>
                                 <a href="/addBook">create book</a>
                             </li>
+                            <li>
+                                <a href="{{ route('genres_index') }}">Genre List</a>
+                            </li>
                         @endif
                     @endauth
                     @guest

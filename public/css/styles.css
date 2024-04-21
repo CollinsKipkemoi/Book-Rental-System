@@ -575,3 +575,19 @@ body {
 #bookByGenre .backHomeBtn {
     margin: 20px;
 }
+/* Genre List */
+
+.genreName{
+    color: rgb(93, 44, 236);
+}
+
+.genreStyle{
+    color: purple;
+}
+
+.genre-list ol{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+}
