@@ -32,4 +32,7 @@ Route::delete('/book/{bookId}', [brs_controller::class, 'destroy'])->name('book_
 Route::get('/genres', [brs_controller::class, 'genres'])->name('genres_index');
 Route::post('/genres', [brs_controller::class, 'storeGenre'])->name('genres_store');
 Route::get('/genres/create', [brs_controller::class, 'createGenre'])->name('genres_create');
-Route::delete('/genres/{genreId}',[brs_controller::class, 'destroyGenre'])->name('genre_destroy');
+Route::delete('/genres/{genreId}',[brs_controller::class, 'destr
+oyGenre'])->name('genre_destroy');
+Route::get('/genres/{genreId}/edit', [brs_controller::class, 'editGenre'])->name('genre_edit');
+Route::post('/genres/{genreId}/edit', [brs_controller::class, 'updateGenre'])->name('genres_update');

@@ -286,12 +286,27 @@ class brs_controller extends Controller
         return view('genreCreate');
     }
 
-    public function destroyGenre($genreId){
+    public function destroyGenre($genreId)
+    {
         $genre = Genre::find($genreId);
-        if($genre){
+        if ($genre) {
             $genre->delete();
             return redirect()->route('genres_index')->with('success', 'Genre deleted successfully');
         }
         return redirect()->route('genres_index')->with('error', 'Genre not found');
+    }
+    public function editGenre($genreId)
+    {
+        $genre = Genre::find($genreId);
+        return view('genres_edit', ['genre' => $genre]);
+    }
+
+    public function updateGenre(Request $request, $genreId)
+    {
+        $genre = Genre::find($genreId);
+        $genre->name = $request->input('name');
+        $genre->save();
+
+        return redirect()->route('genres_index');
     }
 }

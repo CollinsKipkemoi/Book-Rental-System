@@ -20,7 +20,7 @@
                         <div class="genreButtons">
 
                             <button type="submit" class="edit">
-                                <a href=""><i class="fa-solid fa-pencil"></i> Edit</a>
+                                <a href="{{route('genre_edit', ['genreId' => $genre->id])}}"><i class="fa-solid fa-pencil"></i> Edit</a>
                             </button>
 
                             <form
