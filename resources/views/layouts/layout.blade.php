@@ -10,13 +10,14 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="icon" href="{{ asset('images/book.png') }}">
-    <title>BRS SYSTEM</title>
+    <title>BookBorrowHub</title>
 </head>
 
 <body>
     <div class="navbar-div-wrapper">
         <nav class="navbar navbar-expand-md bg-body-tertiary container container-fluid" id="nav-container">
-            <a class="navbar-brand" href="/">BRS</a>
+            <a class="navbar-brand" href="/">
+                BookBorrowHub</a>
             <div class="nav-items-div">
                 <ul>
                     @auth
@@ -27,9 +28,6 @@
                             {{-- <li><a href="">Rental details</a></li> --}}
                         @endif
                         @if (auth()->user()->is_librarian)
-                            {{-- view all rentals --}}
-                            {{-- view all books --}}
-                            <li><a href="/books">All Books</a></li>
                             <li>
                                 <a href="/addBook">create book</a>
                             </li>

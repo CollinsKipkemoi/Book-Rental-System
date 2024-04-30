@@ -3,7 +3,7 @@
 @section('content')
     <div class="home-div container">
         <div class="welcome-search">
-            <h3>Welcome to BRS</h3>
+            <h3>Welcome to BookBorrowHub</h3>
             <form action="{{route('books.search')}}" method="GET">
                 <input type="text" name="search" placeholder="Enter book title or author">
                 <button type="submit">Search</button>

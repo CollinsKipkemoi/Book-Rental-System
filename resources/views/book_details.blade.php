@@ -12,9 +12,14 @@
             <div class="book-info">
                 <h2>{{ $book->title }}</h2>
                 <br>
-                <p class="author">{{ $book->authors }}</p>
+                <p class="author">Authors: {{ $book->authors }}</p>
                 {{-- genre --}}
-                <p><span class="heading">Genre:</span> {{ $book->genre }}</p>
+                <p><span class="heading">Genres</span></p>
+                <ul>
+                    @foreach ($book->genres as $genre)
+                        <li>{{ $genre->name }}</li>
+                    @endforeach
+                </ul>
                 {{-- publish date --}}
                 <p><span class="heading">Date of publish:</span> {{ $book->released_at }}</p>
                 {{-- pages --}}

@@ -75,8 +75,9 @@ class brs_controller extends Controller
         if ($user) {
             $hasOngoingRental = $user->hasOngoingRental($book->id);
         }
+        $genres = $book->genres;
 
-        return view('book_details', ['book' => $book, 'user' => $user, 'hasOngoingRental' => $hasOngoingRental]);
+        return view('book_details', ['book' => $book, 'user' => $user, 'hasOngoingRental' => $hasOngoingRental, 'genres' => $genres]);
     }
 
     // borrow
@@ -164,7 +165,7 @@ class brs_controller extends Controller
 
         $book = new Book($validatedData);
         $book->save();
-        $book->genres()->attach($genres);
+        $book->genres()->sync($genres);
 
         return redirect('/');
     }
@@ -219,7 +220,7 @@ class brs_controller extends Controller
                 'request_processed_at' => null,
                 'request_managed_by' => null,
             ]);
-        }else{
+        } else {
             return redirect()->back()->with('error', 'You already have an ongoing rental for this book.');
         }
 
@@ -343,7 +344,6 @@ class brs_controller extends Controller
         $rental->status = $request->status;
         $rental->deadline = $request->deadline;
         $rental->save();
-
-        return redirect()->route('rentals.show', $rental->id);
+        return redirect()->route('rentals.list');
     }
 }

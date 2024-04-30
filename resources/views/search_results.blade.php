@@ -5,14 +5,16 @@
         <h3>Search Results</h3>
 
         @foreach ($books as $book)
-            <div class="search-result-div">
-                <div class="book">
-                    <h4>Title: <a href="{{ route('books.show', ['id' => $book->id]) }}">{{ $book->title }}</a></h4>
-                    <p>Author: {{ $book->authors }}</p>
-                    <p>Date: {{ $book->released_at }}</p>
-                    <p>Description: {{ $book->description }}</p>
+            <a href="{{ route('books.show', ['id' => $book->id]) }}">
+                <div class="search-result-div">
+                    <div class="book">
+                        <h4>Title:{{ $book->title }}</h4>
+                        <p>Author: {{ $book->authors }}</p>
+                        <p>Date: {{ $book->released_at }}</p>
+                        <p>Description: {{ $book->description }}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         @endforeach
     </div>
 @endsection

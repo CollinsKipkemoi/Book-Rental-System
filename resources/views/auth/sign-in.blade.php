@@ -16,7 +16,7 @@
     <div class="col-md -7 col-xl-8 div1">
         <img src="./images/animated-study-2.png" width="300px">
         <br>
-        <h1>BookWise Rentals
+        <h1>BookBorrowHub
         </h1>
         <h5>
             Login to get started

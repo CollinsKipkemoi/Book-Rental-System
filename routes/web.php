@@ -41,5 +41,5 @@ Route::post('/genres/{genreId}/edit', [brs_controller::class, 'updateGenre'])->n
 Route::get('/rentals/list', [brs_controller::class, 'listRentals'])->name('rentals.list');
 Route::get('/rentals/{id}', [brs_controller::class, 'showRentalDetails'])->name('rentals.show');
 // rental details for librarian
-Route::put('/rentals/{id}', [brs_controller::class, 'updateRental'])->name('rentals.update');
 Route::get('/rentals/{id}', [brs_controller::class, 'showRentalDetails'])->name('rental.details');
+Route::put('/rentals/{id}', [brs_controller::class, 'updateRental'])->name('rental.update');

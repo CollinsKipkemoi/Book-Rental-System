@@ -241,6 +241,10 @@ body {
     flex-direction: column;
 }
 
+.book-info li{
+    list-style-type: circle;
+}
+
 .back-home {
     font-weight: bolder;
 
@@ -639,7 +643,7 @@ body {
     background: purple;
 }
 
-.mini-body select {
+.mini-body select, .librarian-rental-details select, .librarian-rental-details input {
     background: transparent;
     border: none;
     border: 1px solid rgb(93, 44, 236);
@@ -648,13 +652,13 @@ body {
     border-radius: 5px;
 }
 
-.mini-body select:focus {
+.mini-body select:focus, .librarian-rental-details select:focus, .librarian-rental-details input {
     background: rgb(24, 24, 27);
     outline: none;
     color: white;
 }
 
-.mini-body form {
+.mini-body form, .librarian-rental-details, .librarian-rental-details input {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -673,4 +677,19 @@ body {
 .rental-list-item a{
     text-decoration: none;
     cursor: pointer;
+}
+
+.book-details a{
+    text-decoration: none;
+    color: white;
+}
+
+.rentals a{
+    text-decoration: none;
+    color: white;
+}
+
+.rentalType{
+    color: purple;
+    font-weight: bolder;
 }

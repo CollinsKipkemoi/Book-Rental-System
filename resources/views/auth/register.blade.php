@@ -18,7 +18,7 @@
         <img src="./images/animated-study-2.png" width="300px">
         <br>
 {{--        BRS IS A LIBRARY MANAGEMENT SYSTEM--}}
-        <h1>BookWise Rentals
+        <h1>BookBorrowHub
         </h1>
         <h5>
             Register to get started
