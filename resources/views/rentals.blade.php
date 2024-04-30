@@ -12,7 +12,7 @@
                         <div class="rental">
                             <a href="{{ route('rental.details', $rental->id) }}">
                                 <h3>{{ $rental->book->title }}</h3>
-                                <p>Author: {{ $rental->book->author }}</p>
+                                <p>Author: {{ $rental->book->authors }}</p>
                                 <p>Date of Rental: {{ $rental->created_at }}</p>
                                 <p>Deadline: {{ $rental->deadline }}</p>
                             </a>

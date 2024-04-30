@@ -21,11 +21,13 @@
                 <ul>
                     @auth
                         <li><a href="/">Home</a></li>
-                        {{-- view active rentals --}}
-                        <li><a href="/rentals">My Rentals</a></li>
+                        @if (!auth()->user()->is_librarian)
+                            {{-- view active rentals --}}
+                            <li><a href="/rentals">My Rentals</a></li>
+                            {{-- <li><a href="">Rental details</a></li> --}}
+                        @endif
                         @if (auth()->user()->is_librarian)
                             {{-- view all rentals --}}
-                            <li><a href="">Rental details</a></li>
                             {{-- view all books --}}
                             <li><a href="/books">All Books</a></li>
                             <li>
@@ -34,6 +36,7 @@
                             <li>
                                 <a href="{{ route('genres_index') }}">Genre List</a>
                             </li>
+                            <li><a href="{{ route('rentals.list') }}">Rental List</a></li>
                         @endif
                     @endauth
                     @guest
@@ -42,11 +45,13 @@
                     @endguest
                     {{-- create a book --}}
 
-                    <div class="profile">
-                        <a href="/profile">
-                            <img src="{{ asset('images/profile.png') }}" alt="user" class="user-icon">
-                        </a>
-                    </div>
+                    @auth
+                        <div class="profile">
+                            <a href="/profile">
+                                <img src="{{ asset('images/profile.png') }}" alt="user" class="user-icon">
+                            </a>
+                        </div>
+                    @endauth
                 </ul>
             </div>
         </nav>

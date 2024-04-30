@@ -108,7 +108,9 @@ body {
 .book-details-inner,
 .rental-data,
 .profileInfo,
-.bookByGenre, .book-info , .ongoingRentalInfo{
+.bookByGenre,
+.book-info,
+.ongoingRentalInfo, .rental-list-item{
     padding: 10px;
     background: rgba(41, 44, 49, 0.45);
     border-radius: 16px;
@@ -145,7 +147,8 @@ body {
 
 }
 
-.welcome-search input , .newGenre {
+.welcome-search input,
+.newGenre {
     background: transparent;
     border: none;
     border-bottom: 1px solid rgb(93, 44, 236);
@@ -160,7 +163,8 @@ body {
     color: #757373;
 }
 
-.welcome-search input:focus, .newGenre {
+.welcome-search input:focus,
+.newGenre {
     outline: none;
     background: transparent;
     color: white;
@@ -168,7 +172,10 @@ body {
 
 .welcome-search button,
 .borrow,
-.back, .edit, .delete, .addGenre {
+.back,
+.edit,
+.delete,
+.addGenre {
     background: rgb(93, 44, 236);
     color: white;
     border: none;
@@ -278,7 +285,7 @@ body {
 
 }
 
-.libBtn{
+.libBtn {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -286,46 +293,49 @@ body {
 
 }
 
-.delete{
+.delete {
     background: purple;
 }
 
-.outer-div{
+.outer-div {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.book-info{
+.book-info {
     padding: 30px;
 }
 
-.book-info, .book-image{
+.book-info,
+.book-image {
     min-height: 90%;
     max-height: fit-content;
 }
-.book-image{
+
+.book-image {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.book-image img{
+.book-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 16px;
 }
-.book-info .heading{
+
+.book-info .heading {
     color: purple;
     font-weight: 700;
 }
 
-.ongoingRentalInfo{
+.ongoingRentalInfo {
     position: relative;
 }
 
-.ongoingRentalInfo h3{
+.ongoingRentalInfo h3 {
     width: 100%;
     height: fit-content;
     background: rgb(93, 44, 236);
@@ -389,7 +399,7 @@ body {
     gap: 10px;
 }
 
-.create-book form{
+.create-book form {
     overflow-x: hidden;
 }
 
@@ -579,31 +589,32 @@ body {
 #bookByGenre .backHomeBtn {
     margin: 20px;
 }
+
 /* Genre List */
 
-.genreName{
+.genreName {
     color: rgb(93, 44, 236);
 }
 
-.genreStyle{
+.genreStyle {
     color: purple;
 }
 
-.genre-list ol{
+.genre-list ol {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 
 }
 
-.mini-body a{
+.mini-body a {
     text-decoration: none;
     color: white;
 
 }
 
 
-.genre{
+.genre {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -612,23 +623,23 @@ body {
     padding: 15px;
 }
 
-.genreButtons button>a{
+.genreButtons button>a {
     text-decoration: none;
     color: white;
 }
 
-.genreButtons{
+.genreButtons {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
 /* Add a new genre */
-.addGenre:hover{
+.addGenre:hover {
     background: purple;
 }
 
-.mini-body select{
+.mini-body select {
     background: transparent;
     border: none;
     border: 1px solid rgb(93, 44, 236);
@@ -640,13 +651,26 @@ body {
 .mini-body select:focus {
     background: rgb(24, 24, 27);
     outline: none;
-    color: white; 
+    color: white;
 }
 
-.mini-body form{
+.mini-body form {
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 20px;
     /* width: 60%; */
+}
+
+
+/* Rental list  */
+.rental-list-item{
+    height: max-content;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.rental-list-item a{
+    text-decoration: none;
+    cursor: pointer;
 }

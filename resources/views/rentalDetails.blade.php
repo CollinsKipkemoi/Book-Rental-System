@@ -9,12 +9,12 @@
                 <div class="book-details-inner">
                     <h2>Book</h2>
                     <br>
-                    <a href="/">
+                    <a href="{{ route('books.show', $rental->book->id) }}">
                         <p>Title: {{ $rental->book->title }}</p>
                         <br>
-                        <p>Author: {{ $rental->book->author }}</p>
+                        <p>Author: {{ $rental->book->authors }}</p>
                         <br>
-                        <p>Date: {{ $rental->book->date }}</p>
+                        <p>Date: {{ $rental->book->created_at }}</p>
                     </a>
                 </div>
             </div>
@@ -36,6 +36,27 @@
                     <p class="late">This rental is late.</p>
                 @endif
             </div>
+        </div>
+        <div class="librarian">
+            @if (auth()->user()->is_librarian)
+                <form action="{{ route('rentals.update', $rental->id) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+
+                    <label for="status">Status:</label>
+                    <select name="status" id="status">
+                        <option value="PENDING">PENDING</option>
+                        <option value="ACCEPTED">ACCEPTED</option>
+                        <option value="REJECTED">REJECTED</option>
+                        <option value="RETURNED">RETURNED</option>
+                    </select>
+
+                    <label for="deadline">Deadline:</label>
+                    <input type="date" id="deadline" name="deadline">
+
+                    <input type="submit" value="Update">
+                </form>
+            @endif
         </div>
     </div>
 @endsection

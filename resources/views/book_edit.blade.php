@@ -71,6 +71,19 @@
                 @enderror
             </div>
             <div class="mb-4">
+                {{-- Cover Image URL --}}
+                <label for="cover_image">Cover Image URL:</label>
+                <br>
+                <input type="text" name="cover_image" value="{{ $book->cover_image }}"
+                    class="form-control @error('cover_image') is-invalid @enderror" id="cover_image"
+                    placeholder="Cover image URL">
+                @error('cover_image')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="mb-4">
                 {{-- Description --}}
                 <label for="description">Description:</label>
                 <br>

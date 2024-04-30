@@ -62,9 +62,8 @@ class brs_controller extends Controller
     {
         $search = $request->get('search');
         $books = Book::where('title', 'like', "%{$search}%")
-            ->orWhere('author', 'like', "%{$search}%")
+            ->orWhere('authors', 'like', "%{$search}%")
             ->get();
-
         return view('search_results', ['books' => $books]);
     }
     public function show($bookId)
@@ -157,6 +156,7 @@ class brs_controller extends Controller
             'description' => 'nullable',
             'genres' => 'required|array',
             'in_stock' => 'required|integer|min:0',
+            'cover_image' => 'url',
         ]);
 
         $genres = $validatedData['genres'];
@@ -210,6 +210,7 @@ class brs_controller extends Controller
         $book = Book::find($request->book_id);
         $user = Auth::user();
 
+
         if (!$user->hasOngoingRental($book->id)) {
             Borrow::create([
                 'book_id' => $book->id,
@@ -218,6 +219,8 @@ class brs_controller extends Controller
                 'request_processed_at' => null,
                 'request_managed_by' => null,
             ]);
+        }else{
+            return redirect()->back()->with('error', 'You already have an ongoing rental for this book.');
         }
 
         return redirect()->route('book_details', ['bookId' => $book->id]);
@@ -308,5 +311,39 @@ class brs_controller extends Controller
         $genre->save();
 
         return redirect()->route('genres_index');
+    }
+
+    public function listRentals()
+    {
+        $pendingRentals = Borrow::where('status', 'PENDING')->get();
+        $acceptedRentals = Borrow::where('status', 'ACCEPTED')->where('deadline', '>', now())->get();
+        $lateRentals = Borrow::where('status', 'ACCEPTED')->where('deadline', '<', now())->get();
+        $rejectedRentals = Borrow::where('status', 'REJECTED')->get();
+        $returnedRentals = Borrow::where('status', 'RETURNED')->get();
+
+        return view('rentalList', compact('pendingRentals', 'acceptedRentals', 'lateRentals', 'rejectedRentals', 'returnedRentals'));
+    }
+
+    public function showRentalDetails($id)
+    {
+        $rental = Borrow::findOrFail($id);
+
+        return view('rentalDetails', compact('rental'));
+    }
+
+    public function updateRental(Request $request, $id)
+    {
+        $rental = Borrow::findOrFail($id);
+
+        $request->validate([
+            'status' => 'required|in:PENDING,ACCEPTED,REJECTED,RETURNED',
+            'deadline' => 'required|date',
+        ]);
+
+        $rental->status = $request->status;
+        $rental->deadline = $request->deadline;
+        $rental->save();
+
+        return redirect()->route('rentals.show', $rental->id);
     }
 }

@@ -7,7 +7,7 @@
         <div class="outer-div">
             <div class="book-image">
                 {{-- TODO: fix the typo for the book url --}}
-                <img src="{{ $book->cover_imag ?: asset('images/book_cover.png') }}" alt="{{ $book->title }}">
+                <img src="{{ $book->cover_image ?: asset('images/book_cover.png') }}" alt="{{ $book->title }}">
             </div>
             <div class="book-info">
                 <h2>{{ $book->title }}</h2>
@@ -33,7 +33,8 @@
                     <form method="POST" action="{{ route('borrow') }}">
                         @csrf
                         <input type="hidden" name="book_id" value="{{ $book->id }}">
-                        <button type="submit" class="borrow">Borrow Book</button>
+                        <button type="submit" class="borrow" {{ $hasOngoingRental ? 'disabled' : '' }}>Borrow
+                            Book</button>
                     </form>
                 @endif
 

@@ -19,6 +19,13 @@ class Borrow extends Model
         'return_managed_by',
     ];
 
+    protected $dates = [
+        'created_at',
+        'request_processed_at',
+        'deadline',
+        'returned_at',
+    ];
+
     public function book()
     {
         return $this->belongsTo(Book::class);
@@ -26,11 +33,16 @@ class Borrow extends Model
 
     public function reader()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'reader_id');
     }
 
-    public function librarian()
+    public function requestManager()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'request_managed_by');
+    }
+
+    public function returnManager()
+    {
+        return $this->belongsTo(User::class, 'return_managed_by');
     }
 }
