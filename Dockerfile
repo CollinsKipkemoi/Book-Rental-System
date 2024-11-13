@@ -1,24 +1,25 @@
 # Use an official PHP runtime as a parent image
 FROM php:8.1-cli
 
-# Set working directory
+# Set the working directory
 WORKDIR /var/www
 
-# Install required PHP extensions and Composer
-RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev zip git && \
-    docker-php-ext-configure gd --with-freetype --with-jpeg && \
-    docker-php-ext-install gd && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin && \
-    apt-get clean
+# Install PHP extensions and Composer
+RUN apt-get update && apt-get install -y \
+    libpng-dev libjpeg-dev libfreetype6-dev zip git \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin \
+    && apt-get clean
 
-# Copy the current directory contents into the container
+# Copy the rest of your application
 COPY . /var/www
 
-# Install dependencies with Composer
+# Install Laravel dependencies
 RUN composer install
 
-# Expose port 80
+# Expose the port (optional, for use in the web service)
 EXPOSE 80
 
-# Command to run your application
+# Start the PHP server
 CMD ["php", "-S", "0.0.0.0:80", "-t", "public"]
