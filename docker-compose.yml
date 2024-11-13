@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      - APP_KEY=base64:s5f32KS/0XabX4JnG8IowtpzcpmJMHW5sjUNcLm1pcQ=
+      - DB_CONNECTION=sqlite
+      - DB_DATABASE=/var/www/database/database.sqlite
